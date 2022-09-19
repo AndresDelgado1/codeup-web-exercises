@@ -5,7 +5,7 @@
          i *= 2
      }
  }
-double()
+//double()
 
 
 

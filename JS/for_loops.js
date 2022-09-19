@@ -1,14 +1,28 @@
+// function showMultiplicationTable(x){
+//     for(let i = 1; i <= 10; i++){
+//         console.log((x * i));
+//     }
+// }
+
+
 function showMultiplicationTable(x){
     for(let i = 1; i <= 10; i++){
-        console.log(x * i);
+        console.log(x + " x " + i + " = " +(x * i));
     }
 }
 //showMultiplicationTable(7);
 
 
+
+
+
+
+
+
+
 function randomNumber() {
     for (let i = 0; i < 10; i++) {
-        var random = Math.floor((Math.random() * 180) + 21);
+        let random = Math.floor((Math.random() * 180) + 20);
         if (random % 2 === 0) {
             console.log(random + " is even" )
         } else {
@@ -19,12 +33,26 @@ function randomNumber() {
 //randomNumber()
 
 
+
+
+
+
+
+
+
 function numberPyramid(){
-for(i = 1; i <= 9; i++) {
-    console.log(i.toString().repeat(i));
-}
+    for(i = 1; i <= 9; i++) {
+        console.log(i.toString().repeat(i));
+    }
 }
 //numberPyramid()
+
+
+
+
+
+
+
 
 
 function countDown(){
