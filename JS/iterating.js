@@ -61,7 +61,7 @@
 
 
     function numbersThree () {
-        console.log(numbers[4]);
+        console.log(numbers[numbers.length-1]);
     }
     numbersThree()
 })();
