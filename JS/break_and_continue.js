@@ -15,17 +15,18 @@
 
 function oddNumbers() {
     let userOddNumber;
-    for(i = 1;; i++){
-        userOddNumber = prompt("Pick an odd number between 1 and 50!");
+    while(true){
+        userOddNumber = Number(prompt("Pick an odd number between 1 and 50!"));
         if(userOddNumber % 2 === 1 && userOddNumber > 0 && userOddNumber < 50){
             break;
         }
     }
     for(i = 1; i < 50; i += 2){
         if (i === userOddNumber){
+            console.log('Yikes! Skipping number ' + userOddNumber);
             continue;
         }
         console.log('Here is an odd number: ' + i);
     }
 }
-//oddNumbers()
+oddNumbers()
