@@ -44,31 +44,25 @@
      * represents one shopper. Use a foreach loop to iterate through the array,
      * and console.log the relevant messages for each person
      */
-
-     var shoppers = [
+    var shoppers = [
          {name: 'Cameron', amount: 180},
          {name: 'Ryan', amount: 250},
          {name: 'George', amount: 320}
-     ];
+      ];
 
-        shoppers.forEach(function(shopper){
-            if (shopper.amount > 200) {
-                let discount = 0.12;
-                let totalAfterDiscount = shopper.amount - (shopper.amount * discount)
-                console.log(shopper.name + ' had a total of ' + shopper.amount + '.' + " He qualifies for a discount of "
-                    + discount + ', and his new total is ' + totalAfterDiscount)
-            } else {
-                let noDiscount = 0;
-                console.log(shopper.name + ' had a total of ' + shopper.amount + '.' + ' He does not qualify for the discount,' +
-                    ' so his total will remain ' + shopper.amount);
-            }
+    shoppers.forEach(function (shopper) {
+        if (shopper.amount > 200) {
+            let discount = 0.12;
+            let totalAfterDiscount = shopper.amount - (shopper.amount * discount)
+            console.log(shopper.name + ' had a total of ' + shopper.amount + '.' + " He qualifies for a discount of "
+                + discount + ', and his new total is ' + totalAfterDiscount)
+        } else {
+            let noDiscount = 0;
+            console.log(shopper.name + ' had a total of ' + shopper.amount + '.' + ' He does not qualify for the discount,' +
+                ' so his total will remain ' + shopper.amount);
+        }
 
-        })
-
-
-
-
-
+    })
 
 
 
@@ -85,6 +79,34 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+
+    let books = [
+        {title: 'The Salmon of Doubt',
+            author: {firstName:'Douglas',
+                  lastName: 'Adams'}
+        },
+        {title: 'Walkaway',
+            author: {firstName:'Cory',
+                lastName: 'Doctorow'}
+        },
+        {title: 'A Brief History of Time',
+            author: {firstName:'Stephen',
+                lastName: 'Hawking'}
+        },
+        {title: 'Green Eggs With Ham',
+            author: {firstName:'Dr.',
+                lastName: 'Seuss'}
+        },
+        {title: 'The Art of War',
+            author: {firstName:'Sun',
+                lastName: 'Tzu'}
+        }
+    ]
+
+    console.log(books[0].title)
+    console.log(books[0].author.firstName)
+    console.log(books[0].author.lastName)
+
 
     /**
      * TODO:
@@ -110,6 +132,16 @@
      *      ---
      *      ...
      */
+    for( let i = 1; i <= 5; i++){
+        console.log('Book # ' + i);
+        console.log('Title: ' + books[i - 1].title);
+        console.log('Author: ' + books[i - 1].author.firstName + ' ' + books[i - 1].author.lastName)
+    }
+
+
+
+
+
 
     /**
      * Bonus:
