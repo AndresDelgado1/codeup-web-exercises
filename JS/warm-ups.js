@@ -6,8 +6,3 @@ function areaTriangle(){
 //areaTriangle()
 
 
-function reverse(x) {
-    .split().reverse().join('');
-}
-
-console.log(reverse);

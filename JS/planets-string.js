@@ -24,5 +24,5 @@
      * list. You will need an opening AND closing <ul> tags around the entire
      * string, and <li> tags around each planet.
      */
-
+    let planetTags = planetsArray.join('<br');
 })();
