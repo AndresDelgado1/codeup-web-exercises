@@ -17,6 +17,7 @@
      * TODO:
      * Create a string with <br> tags between each planet. console.log() your
      * results. Why might this be useful?
+
      *
      * BONUS:
      * Create another string that would display your planets in an undordered
