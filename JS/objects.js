@@ -155,3 +155,18 @@
      */
 
 
+    function createBook(tit, fn, ln) {
+           console.log(tit, fn, ln);
+           books.push(
+               {title: tit,
+               author: {
+                   firstName: fn,
+                   lastname: ln
+               }
+           })
+    }
+    createBook('The Cat In The Hat', 'Dr.', 'Seuss')
+
+
+
+
