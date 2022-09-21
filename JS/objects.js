@@ -1,4 +1,4 @@
-(function() {
+
     "use strict";
 
     /**
@@ -51,18 +51,21 @@
          {name: 'George', amount: 320}
      ];
 
-     function discount(){
-         if(shoppers.amount > 200){
-             let discount = .12;
-             let totalAfterDiscount = shoppers.amount - (shoppers.amount * .12);
-         } else{
-             let noDiscount = shoppers.amount - 0
-         }
         shoppers.forEach(function(shopper){
-            console.log(shoppers.name + ' spent a total of ' + shoppers.amount)
+            if (shopper.amount > 200) {
+                let discount = 0.12;
+                let totalAfterDiscount = shopper.amount - (shopper.amount * discount)
+                console.log(shopper.name + ' had a total of ' + shopper.amount + '.' + " He qualifies for a discount of "
+                    + discount + ', and his new total is ' + totalAfterDiscount)
+            } else {
+                let noDiscount = 0;
+                console.log(shopper.name + ' had a total of ' + shopper.amount + '.' + ' He does not qualify for the discount,' +
+                    ' so his total will remain ' + shopper.amount);
+            }
+
         })
 
-     }
+
 
 
 
@@ -119,4 +122,4 @@
      *   `showBookInfo` function.
      */
 
-})();
+
