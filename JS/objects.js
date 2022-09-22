@@ -168,5 +168,5 @@
     createBook('The Cat In The Hat', 'Dr.', 'Seuss')
 
 
-
+console.log(books);
 
