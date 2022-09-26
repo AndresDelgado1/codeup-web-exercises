@@ -5,6 +5,7 @@ function areaTriangle(b, h){
 //areaTriangle(6, 4)
 
 
+
 function countUp(){
     for(i = 1; i <= 100; i++){
     if(i % 3 === 0){
@@ -58,6 +59,7 @@ function convertDaysToHours(days){
 //console.log(convertDaysToHours('5'));
 
 
+
 // Write a function named calculateTax that takes in two inputs representing the totalPaid and the taxPercent. If both inputs are numeric or numeric strings, calculateTax should return the total with tax added in a string looking like: “$XX.XX”. If either or both inputs are not numeric or numeric strings, calculateTax should return false.
 // calculateTax(25, 8)               // “$27.00"
 // calculateTax(10, 12)             // “$11.20”
@@ -77,4 +79,28 @@ function calculateTax(totalPaid, taxPercent){
     }
 }
 
-console.log(calculateTax(25, 8));
+//console.log(calculateTax(25, 8));
+
+
+
+//Write a function to return an array of only the Even numbers from an array with the numbers 1 through 10
+//example input: [1,2,3,4,5] expected output: [2,4]
+function evenNumbers() {
+    for (let i = 1; i <= 10; i += 2) {
+        let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        console.log(array[i]);
+    }
+}
+//evenNumbers()
+
+
+
+
+
+//Write a function that takes an array of objects and a string as arguments. Add a property with key ‘continent’ and //value equal to the string to each of the objects. Return the new array of objects. Don’t mutate the original array.
+
+
+
+
+
+
