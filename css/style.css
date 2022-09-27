@@ -1,5 +1,8 @@
-.fancy-header{
-    color: purple;
+h1{
+    color: olivedrab;
+    text-align: center;
+}
+h2{
+    color: darkred;
     text-decoration: underline;
 }
-
