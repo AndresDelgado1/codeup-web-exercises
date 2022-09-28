@@ -1,7 +1,7 @@
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+
 }
 
 body, html {
@@ -74,7 +74,7 @@ fieldset {
     /* See the example at: https://developer.mozilla.org/en-US/docs/Web/CSS/calc */
     /* HINT: Examples are available at: https://glitch.com/~input-button-width */
 
-    width:calc(100% - 1px);
+    width:calc(100% - 4px);
     padding-top: 4px;
     padding-bottom: 4px;
     margin-top: .5em;
