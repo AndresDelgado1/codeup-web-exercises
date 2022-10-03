@@ -17,6 +17,53 @@ function countUp(){
 
 
 
+
+//Write a function to return an array of only the Even numbers from an array with the numbers 1 through 10
+//example input: [1,2,3,4,5] expected output: [2,4]
+function evenNumbers() {
+    for (let i = 1; i <= 10; i += 2) {
+        let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        console.log(array[i]);
+    }
+}
+//evenNumbers()
+
+
+
+
+
+//Write a function that takes an array of objects and a string as arguments. Add a property with key ‘continent’ and //value equal to the string to each of the objects. Return the new array of objects. Don’t mutate the original array.
+// example input: [{ city: 'Tokyo', country: 'Japan' }, { city: 'Bangkok', country: 'Thailand' }], 'Asia'
+// expected output: [{ city: 'Tokyo', country: 'Japan', continent: 'Asia' }, { city: 'Bangkok', country: 'Thailand', continent: 'Asia' }]
+let cities = [{city: 'Tokyo', country: 'Japan'}, { city: 'Bangkok', country: 'Thailand'}]
+let where = 'Asia'
+function x (array, string){
+    return cities[0].push('continent:')
+
+}
+
+
+
+//re-write the following using a for loop: var i = 20; while (i >= 0) { console.log(i); i--; }
+function countDown() {
+    for (let i = 20; i >= 0; i--) {
+        console.log(i)
+    }
+}
+
+
+
+//Add ‘strawberry’ to the beginning, middle, and end of the array. var fruits = ["mango", "blueberries", "oranges", "banana", "papaya", "kiwi"];
+let fruits = ["mango", "blueberries", "oranges", "banana", "papaya", "kiwi"];
+fruits.splice(3, 0, 'strawberry');
+fruits.unshift('strawberry');
+fruits.push('strawberry');
+console.log(fruits);
+
+
+
+
+
 // Define a function named timesFour that takes in an input and multiples that input by four if it is numeric. If the input is not numeric, then return false.
 // timesFour(0) //0
 // timesFour("5") //20
@@ -80,33 +127,3 @@ function calculateTax(totalPaid, taxPercent){
 }
 
 //console.log(calculateTax(25, 8));
-
-
-
-//Write a function to return an array of only the Even numbers from an array with the numbers 1 through 10
-//example input: [1,2,3,4,5] expected output: [2,4]
-function evenNumbers() {
-    for (let i = 1; i <= 10; i += 2) {
-        let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        console.log(array[i]);
-    }
-}
-//evenNumbers()
-
-
-
-
-
-//Write a function that takes an array of objects and a string as arguments. Add a property with key ‘continent’ and //value equal to the string to each of the objects. Return the new array of objects. Don’t mutate the original array.
-// example input: [{ city: 'Tokyo', country: 'Japan' }, { city: 'Bangkok', country: 'Thailand' }], 'Asia'
-// expected output: [{ city: 'Tokyo', country: 'Japan', continent: 'Asia' }, { city: 'Bangkok', country: 'Thailand', continent: 'Asia' }]
-let cities = [{city: 'Tokyo', country: 'Japan'}, { city: 'Bangkok', country: 'Thailand'}]
-let where = 'Asia'
-function x (array, string){
-    return cities[0].push('continent:')
-
-}
-
-
-
-
