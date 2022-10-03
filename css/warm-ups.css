@@ -1,0 +1,34 @@
+
+.wrapper{
+    background: lightgrey;
+
+
+
+    height: 500px;
+}
+.blue{
+    background: #3B94D9;
+    float: left;
+
+}
+.red{
+    background: red;
+    float: left;
+}
+.green{
+    background: green;
+    float: left;
+
+}
+.box{
+    height: 50px;
+    width: 29.33%;
+    padding: 1%;
+    margin: 1%;
+}
+.quote{
+    float: left;
+    padding: 5px;
+    margin: 0;
+    clear: right;
+}
