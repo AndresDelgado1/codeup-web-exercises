@@ -32,7 +32,7 @@ a {
     text-align: center;
     /*  TODO: Change this flex items basis to 100% of the page  */
     flex-basis: 100%;
-    align-items: baseline;
+
 }
 
 .card-title {
