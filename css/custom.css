@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.jumbotron{
+    display: flex;
+    align-items: center;
+    height: 346px;
+    background-size: cover;
+    background-image: url("/images/pizza.png");
+}
+h1{
+    width: 100%;
+}
