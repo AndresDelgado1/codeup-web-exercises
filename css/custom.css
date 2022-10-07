@@ -8,9 +8,9 @@
     align-items: center;
     height: 346px;
     background-size: cover;
-    background-color: black;
+    background-image: url("../images/pizza.png") ;
 }
 h1{
     width: 100%;
-    opacity: 0.2;
+    opacity: 0.6;
 }
