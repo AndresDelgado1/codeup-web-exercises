@@ -1,0 +1,54 @@
+
+
+.container{
+    /*margin: 10px;*/
+    /*border-left: 1px solid black;*/
+}
+
+h1{
+    font-size: 32px;
+}
+h2{
+    font-size: 23px;
+}
+h3{
+    font-size: 16px;
+}
+p{
+    font-size: 12px;
+}
+li{
+    font-size: 12px;
+}
+@media screen and (min-width:1024px) {
+    /* big landscape tablets, laptops, and desktops */
+    /*contact section*/
+    /*.container {*/
+    /*    margin-left: 0;*/
+    /*    border-left: none;*/
+    /*}*/
+
+    .ul-1 {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .list-1 {
+        display: inline-block;
+    }
+
+    /*main section*/
+    .section-2 {
+        float: left;
+
+
+    }
+
+    .section-3 {
+        float: left;
+        width: 570px;
+        margin-left: 40px;
+    }
+}
+
+
