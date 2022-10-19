@@ -5,12 +5,29 @@
     <title>Title</title>
 </head>
 <body>
-
+    <h1 id="one" class="codeup">Hello</h1>
+    <div>
+    <p id="two" class="codeup">This is a test</p>
+    <ul id="three" class="codeup" >
+        <li >this is 1</li>
+        <li>this is 2</li>
+        <li>this is 3</li>
+    </ul>
+    </div>
 
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-<script>$(function() {
+<script>
+$(function() {
     alert( 'The DOM has finished loading!' );
-});</script>
+});
+
+var contents = $('#one').html();
+alert(contents);
+
+$('#three').css('font-size', '20px');
+
+$('h1, p, li').css('background-color', 'yellow');
+</script>
 </body>
 </html>
