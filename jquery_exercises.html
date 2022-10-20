@@ -18,16 +18,32 @@
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
-$(function() {
-    alert( 'The DOM has finished loading!' );
+// $(function() {
+//     alert( 'The DOM has finished loading!' );
+// });
+//
+// var contents = $('#one').html();
+// alert(contents);
+//
+// $('#three').css('font-size', '20px');
+//
+// $('h1, p, li').css('background-color', 'yellow');
+$('#one').click(function() {
+    $('#one').css('background-color', 'red')
 });
 
-var contents = $('#one').html();
-alert(contents);
+$('#two').click(function() {
+    $('#two').css('font-size', '18px')
+});
 
-$('#three').css('font-size', '20px');
-
-$('h1, p, li').css('background-color', 'yellow');
+$('#three').hover(
+    function() {
+        $('li').css('background-color', 'red');
+    },
+    function() {
+        $('li').css('background-color', 'black');
+    }
+)
 </script>
 </body>
 </html>
