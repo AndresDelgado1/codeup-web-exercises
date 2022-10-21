@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p{
+            color: blue;
+            text-decoration: underline;
+        }
+        p:hover{
+           cursor: pointer;
+        }
+        dt{
+            font-weight: bold;
+            margin: 5px;
+        }
+        dd{
+            margin-bottom: 30px;
+        }
+        .invisible{
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+<p>Starter Pokemon:</p>
+
+<dl>
+    <dt>Charmander</dt>
+    <dd class="invisible">Charmander (Japanese: ヒトカゲ Hitokage) is a Fire-type Pokémon introduced in Generation I.
+        It evolves into Charmeleon starting at level 16, which evolves into Charizard starting at level 36.</dd>
+
+    <dt>Bulbasaur</dt>
+    <dd class="invisible">Bulbasaur (Japanese: フシギダネ Fushigidane) is a dual-type Grass/Poison Pokémon introduced in Generation I.
+        It evolves into Ivysaur starting at level 16, which evolves into Venusaur starting at level 32.</dd>
+
+    <dt>Squirtle</dt>
+    <dd class="invisible">Squirtle (Japanese: ゼニガメ Zenigame) is a Water-type Pokémon introduced in Generation I.
+        It evolves into Wartortle starting at level 16, which evolves into Blastoise starting at level 36.</dd>
+
+    <dt>Cyndaquil</dt>
+    <dd class="invisible">Cyndaquil (Japanese: ヒノアラシ Hinoarashi) is a Fire-type Pokémon introduced in Generation II.
+        It evolves into Quilava starting at level 14, which evolves into Typhlosion starting at level 36.</dd>
+
+    <dt>Chikorita</dt>
+    <dd class="invisible">Chikorita (Japanese: チコリータ Chicorita) is a Grass-type Pokémon introduced in Generation II.
+        It evolves into Bayleef starting at level 16, which evolves into Meganium starting at level 32.</dd>
+
+    <dt>Totodile</dt>
+    <dd class="invisible">Totodile (Japanese: ワニノコ Waninoko) is a Water-type Pokémon introduced in Generation II.
+        It evolves into Croconaw starting at level 18, which evolves into Feraligatr starting at level 30.</dd>
+
+    <dt>Torchic</dt>
+    <dd class="invisible">Torchic (Japanese: アチャモ Achamo) is a Fire-type Pokémon introduced in Generation III.
+        It evolves into Combusken starting at level 16, which evolves into Blaziken starting at level 36</dd>
+
+    <dt>Treecko</dt>
+    <dd class="invisible">Treecko (Japanese: キモリ Kimori) is a Grass-type Pokémon introduced in Generation III.
+        It evolves into Grovyle starting at level 16, which evolves into Sceptile starting at level 36.</dd>
+
+    <dt>Mudkip</dt>
+    <dd class="invisible">Mudkip (Japanese: ミズゴロウ Mizugorou) is a Water-type Pokémon introduced in Generation III.
+        It evolves into Marshtomp starting at level 16, which evolves into Swampert starting at level 36.</dd>
+
+
+
+</dl>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script>
+    $('p').click(function() {
+        $('dd').toggleClass('invisible')
+    });
+</script>
+</body>
+</html>
