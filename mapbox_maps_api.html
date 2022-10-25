@@ -43,7 +43,7 @@
   let marker = new mapboxgl.Marker()
           .setLngLat([-97.67185, 30.48170])
           .addTo(map)
-          map.setZoom(20);
+          map.setZoom(12);
 
   // Create a popup with the name of the restaurant.
   let popup = new mapboxgl.Popup()
@@ -53,7 +53,8 @@
   let restaurants = [
     {
       name: "WhatABurger",
-      location: [-97.67771, 30.50164]
+      location: [-97.67771, 30.50164],
+      description: "Best burgers in Texas",
     },
     {
       name: "Olive Garden",
@@ -71,7 +72,8 @@
             .addTo(map)
     map.setZoom(20);
     let popup = new mapboxgl.Popup()
-            .setHTML(restaurant.name)
+            .setHTML(restaurant.name,
+                    restaurant.description)
     marker.setPopup(popup)
   })
 </script>
