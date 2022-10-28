@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
+    <style>
+        #map{
+            width: 100%;
+            height: 500px;
+        }
+        #box{
+            border: 2px black solid;
+            width: 100px;
+        }
+        #foreCast{
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+        }
+        #weather{
+            border: 2px black solid;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+<h1>hello</h1>
+<div id="weather"></div>
+<div id="foreCast"></div>
+<div id="map"></div>
+
+<script src="js/keys.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+<script >
+    function currentWeather(){
+        let HTML = "";
+        $.ajax(`https://api.openweathermap.org/data/2.5/weather?lat=30.29&lon=-97.74&appid=${weatherKey}&units=imperial`).done(function(data){
+            console.log(data);
+            HTML +=
+                `<div>
+                <h3>Austin, Tx</h3>
+                <p>Temp: ${data.main.temp}</p>
+                <p>H: ${data.main.temp_max}</p>
+                <p>H: ${data.main.temp_min}</p>
+                <p>Wind Speed: ${data.wind.speed} MPH</p>
+                <p>Humidity: ${data.main.humidity}%</p>
+                </div>`
+
+            $(`#weather`).html(HTML)
+        })
+    }
+    currentWeather();
+
+    function forecast() {
+        $.ajax(`https://api.openweathermap.org/data/2.5/forecast?lat=30.29&lon=-97.74&appid=${weatherKey}&units=imperial`).done(function (data) {
+            console.log(data)
+            console.log(data.list[5].dt_txt);
+
+
+            function filterForecast(x) {
+                let filteredWeather = [];
+                for (let i = 0; i < x.list.length; i++) {
+                    if (x.list[i].dt_txt.slice(-8) === '12:00:00') {
+                        filteredWeather.push(x.list[i])
+                    }
+                }
+                console.log(filteredWeather);
+                let yes = "";
+                for (let i = 0; i < filteredWeather.length; i++) {
+
+                    yes +=
+                        `<div id="box">
+                <h3>Austin, Tx</h3>
+                <p>${filteredWeather[i].dt_txt.slice(0,10)}</p>
+                <p>Temperature: ${filteredWeather[i].main.temp}</p>
+                <p>Pressure: ${filteredWeather[i].main.pressure}</p>
+                <p>Wind Speed: ${filteredWeather[i].wind.speed} MPH</p>
+                <p>Humidity: ${filteredWeather[i].main.humidity}%</p>
+                </div>`
+
+                }
+                $(`#foreCast`).html(yes);
+            }
+
+            filterForecast(data);
+        });
+    }
+    forecast();
+
+
+
+
+    // mapboxgl.accessToken = mapboxKey;
+    // var map = new mapboxgl.Map({
+    //     container: 'map',
+    //     style: 'mapbox://styles/mapbox/dark-v10',
+    //     center: [-97.74755, 30.29916],
+    //     zoom: 15,
+    // });
+</script>
+</body>
+</html>
