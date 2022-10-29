@@ -41,14 +41,19 @@
 </head>
 <body>
 <h1 style="text-align: center; color: white">Weather</h1>
-<div id="weather"></div>
-<div id="foreCast"></div>
+
+<div id="foreCast">
+    <div id="imgDiv"></div>
+</div>
 <div id="map"></div>
 
 <script src="js/keys.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
 <script >
+
+
+//weather request🟢🟢🟢🟢🟢🟢
     function currentWeather(){
         let HTML = "";
         $.ajax(`https://api.openweathermap.org/data/2.5/weather?lat=30.29&lon=-97.74&appid=${weatherKey}&units=imperial`).done(function(data){
@@ -68,10 +73,11 @@
     }
     currentWeather();
 
+
+//forecast request🟢🟢🟢🟢🟢🟢
     function forecast() {
         $.ajax(`https://api.openweathermap.org/data/2.5/forecast?lat=30.29&lon=-97.74&appid=${weatherKey}&units=imperial`).done(function (data) {
             console.log(data)
-            console.log(data.list[5].dt_txt);
 
 
             function filterForecast(x) {
@@ -97,6 +103,32 @@
 
                 }
                 $(`#foreCast`).html(yes);
+ //                 function filterPhoto(){
+ //                     let HTML = "";
+ //                     let images = [{
+ //                         image: "images/sunny.jpg",
+ //                         weather: "Clear"
+ //                     },{
+ //                         image: "images/clouds.jpg",
+ //                         weather: "Clouds"
+ //                     },{
+ //                         image: "images/rain.jpg",
+ //                         weather: "Rain"
+ //                     }]
+ //                     for(let i = 0; i < images.length; i++){
+ //                         if(images[i].weather === filteredWeather[i].weather[0].main){
+ //                             HTML +=`
+ //                             <div id="imgDiv">
+ //                             images[i].image
+ // </div>
+ //                             `
+ //                         }
+ //                         $(`.box`).html(HTML);
+ //                         console.log(HTML);
+ //                     }
+ //
+ //                 }
+ //                 filterPhoto()
             }
 
             filterForecast(data);
@@ -104,9 +136,7 @@
     }
     forecast();
 
-
-
-
+//map box setup🟢🟢🟢🟢🟢🟢
     mapboxgl.accessToken = mapboxKey;
     var map = new mapboxgl.Map({
         container: 'map',
@@ -114,6 +144,73 @@
         center: [-97.74035, 30.28771],
         zoom: 12.5,
     });
+
+
+//marker setup🟢🟢🟢🟢🟢🟢
+    let marker = new mapboxgl.Marker({
+        draggable: true
+    })
+        .setLngLat([-97.74035, 30.28771])
+        .addTo(map);
+
+
+
+
+
+
+// marker drag update🟢🟢🟢🟢🟢🟢
+    function updateForecast (){
+        map.on("moved", function() {
+            maker.setLngLat(map.getCenter())
+            onDragEnd()
+        });
+        function onDragEnd() {
+
+
+            let lngLat = marker.getLngLat();
+            let lng = lngLat.lng;
+            let lat = lngLat.lat;
+            console.log(lng);
+
+            $.ajax(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lng}&appid=${weatherKey}&units=imperial`).done(function (data) {
+                console.log(data)
+
+
+                function filterForecast(x) {
+                    let filteredWeather = [];
+                    for (let i = 0; i < x.list.length; i++) {
+                        if (x.list[i].dt_txt.slice(-8) === '12:00:00') {
+                            filteredWeather.push(x.list[i])
+                        }
+                    }
+                    console.log(filteredWeather);
+                    let yes = "";
+                    for (let i = 0; i < filteredWeather.length; i++) {
+
+                        yes +=
+                            `<div class="box">
+                    <h3>${data.city.name}</h3>
+                    <p>${filteredWeather[i].dt_txt.slice(0, 10)}</p>
+                    <p>Temperature: ${filteredWeather[i].main.temp}</p>
+                    <p>Pressure: ${filteredWeather[i].main.pressure}</p>
+                    <p>Wind Speed: ${Math.round(filteredWeather[i].wind.speed)} MPH</p>
+                    <p>Humidity: ${filteredWeather[i].main.humidity}%</p>
+                    </div>`
+
+                    }
+                    $(`#foreCast`).html(yes);
+
+                }
+
+                filterForecast(data);
+            })
+        }
+        marker.on('dragend', onDragEnd);
+    }
+    updateForecast();
+
+
+
 </script>
 </body>
 </html>
