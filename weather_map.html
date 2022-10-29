@@ -5,29 +5,42 @@
     <title>Weather Map</title>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
     <style>
+        html{
+            background-color: #1d2026;
+        }
         #map{
             width: 100%;
-            height: 500px;
+            height: 700px;
+            margin-top: 4em;
         }
-        #box{
-            border: 2px black solid;
-            width: 100px;
+        .box{
+            border: 2px #00986f solid;
+            width: 180px;
+            text-align: center;
+            color: white;
+            border-radius: 20px;
+            background-image: linear-gradient(to bottom, #00986f 20%, rgba(0,0,0,0) 20%);
+        }
+        .box:hover{
+            background-color: #00986f;
+            transition: 0.9s;
+            transform: scale(1.08);
+            background-image: linear-gradient(to bottom, #1d2026 20%, rgba(0,0,0,0) 20%);
+            margin: 0 70px;
+        }
+        h3{
+            margin: 16px 0;
         }
         #foreCast{
-
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+        }
 
-        }
-        #weather{
-            border: 2px black solid;
-            width: 100px;
-        }
     </style>
 </head>
 <body>
-<h1>hello</h1>
+<h1 style="text-align: center; color: white">Weather</h1>
 <div id="weather"></div>
 <div id="foreCast"></div>
 <div id="map"></div>
@@ -41,7 +54,7 @@
         $.ajax(`https://api.openweathermap.org/data/2.5/weather?lat=30.29&lon=-97.74&appid=${weatherKey}&units=imperial`).done(function(data){
             console.log(data);
             HTML +=
-                `<div>
+                `<div class="box">
                 <h3>Austin, Tx</h3>
                 <p>Temp: ${data.main.temp}</p>
                 <p>H: ${data.main.temp_max}</p>
@@ -50,7 +63,7 @@
                 <p>Humidity: ${data.main.humidity}%</p>
                 </div>`
 
-            $(`#weather`).html(HTML)
+            $(`#foreCast`).html(HTML)
         })
     }
     currentWeather();
@@ -73,12 +86,12 @@
                 for (let i = 0; i < filteredWeather.length; i++) {
 
                     yes +=
-                        `<div id="box">
-                <h3>Austin, Tx</h3>
+                        `<div class="box">
+                <h3>${data.city.name}</h3>
                 <p>${filteredWeather[i].dt_txt.slice(0,10)}</p>
                 <p>Temperature: ${filteredWeather[i].main.temp}</p>
                 <p>Pressure: ${filteredWeather[i].main.pressure}</p>
-                <p>Wind Speed: ${filteredWeather[i].wind.speed} MPH</p>
+                <p>Wind Speed: ${Math.round(filteredWeather[i].wind.speed)} MPH</p>
                 <p>Humidity: ${filteredWeather[i].main.humidity}%</p>
                 </div>`
 
@@ -94,13 +107,13 @@
 
 
 
-    // mapboxgl.accessToken = mapboxKey;
-    // var map = new mapboxgl.Map({
-    //     container: 'map',
-    //     style: 'mapbox://styles/mapbox/dark-v10',
-    //     center: [-97.74755, 30.29916],
-    //     zoom: 15,
-    // });
+    mapboxgl.accessToken = mapboxKey;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/dark-v10',
+        center: [-97.74035, 30.28771],
+        zoom: 12.5,
+    });
 </script>
 </body>
 </html>
