@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<script>
+
+
+
+
+   fetch( 'https://dog.ceo/api/breeds/image/random')
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch(error => console.log(error))
+
+
+
+   fetch('https://jsonplaceholder.typicode.com/posts', {
+       method: 'post',
+       body: JSON.stringify({
+           title: "hello",
+           body: "this is a test"
+       })
+   })
+       .then(res => console.log(res.status))
+       .catch(err => err.response.status)
+
+   // fetch('https://jsonplaceholder.typicode.com/', {
+   //     method: 'DELETE'
+   // })
+   //     .then(res => console.log(res.status))
+   //     .catch(err => err.response.status)
+
+
+
+
+</script>
+</body>
+</html>
