@@ -3,38 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+        #container{
+            display: flex;
+           justify-content: center;
+        }
+        .card{
+            width: 25%;
+        }
+        .paragraphLorem{
+            font-weight: bold;
+            border: 1px solid purple;
+            display: ;
+        }
+    </style>
 </head>
 <body>
+<h1>hello</h1>
+<div class="container" id="container">
+</div>
+
+<h1 id="hoverChange">Racecar</h1>
+
+<br>
+<br>
+
+<p id="paragraphLorem" class="paragraphLorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aspernatur corporis cupiditate et explicabo, facilis harum illo inventore laboriosam molestiae nemo, nisi nobis nulla provident quia repellat rerum veritatis voluptatibus?</p>
+
+<br>
+<br>
+
+<p id="colorMe">Webtwo ipsum orkut reddit meebo skype vimeo jajah spock empressr zimbra, mobly napster hipmunk prezi chartly bitly spock. Loopt twones meebo hipmunk, fleck xobni. Convore bebo rovio vimeo zanga handango blekko koofers, loopt twitter imvu flickr kaboodle chegg. Zillow lala mzinga, sifteo. Voki heekya sococo geni oovoo disqus, empressr doostang lijit.</p>
+<br>
+
+<input type="text" id="colorInput"><button id="getInput">Color my paragraph!</button>
 
 
 
+<!-- JavaScript Bundle with Popper -->
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 <script>
+    //TODO: When the h1#hoverChange element has a user HOVER over it, change the String "Racecar" to "Tacocat" [mouseIn] and back to "Racecar" [mouseOut]
+
+    $('#hoverChange').hover(
+        function() {
+            $(this).html('Tacocat');
+        },
+        function() {
+            $(this).html('Racecar');
+        })
+
+    //TODO: When the p#paragraphLorem is clicked on, change the font's weight to BOLD and add a border that is: 1px; unbroken; and purple in color [bonus: How could we have it return to normal on a 2nd click from our user?]
+    // $('#paragraphLorem').click(function() {
+    //     $(this).css('font-weight', 'bold')
+    // });
+    $('#paragraphLorem').click(function() {
+        $(this).toggleClass('paragraphLorem')
+    });
+
+    //TODO: My p#colorMe element is looking a little bland - can you set it up where a user can type a color into input#colorInput, click button#getInput, and the color they typed in become the background of my p#colorMe element? HINT: Presume our users are well-behaved and we ALWAYS get a proper CSS color as input
+    $('#getInput').click(function (){
+        $('#colorMe').css('background-color', $('#colorInput').val())
+    })
+
+    //TODO Bonus: Remember when you helped me defuse the BOM? I have a different mission for you today: can you help me set up some JavaScript that, 10 seconds after our page loads, will replace all of the HTML on the page with text that says: "BOOM"
 
 
 
 
-   fetch( 'https://dog.ceo/api/breeds/image/random')
-    .then((response) => response.json())
-    .then((data) => console.log(data))
-    .catch(error => console.log(error))
 
-
-
-   fetch('https://jsonplaceholder.typicode.com/posts', {
-       method: 'post',
-       body: JSON.stringify({
-           title: "hello",
-           body: "this is a test"
-       })
-   })
-       .then(res => console.log(res.status))
-       .catch(err => err.response.status)
-
-   // fetch('https://jsonplaceholder.typicode.com/', {
-   //     method: 'DELETE'
-   // })
-   //     .then(res => console.log(res.status))
-   //     .catch(err => err.response.status)
 
 
 
